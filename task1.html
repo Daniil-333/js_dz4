@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1</title>
+</head>
+<body>
+<script>
+    'use strict';
+    function numToObject(num) {
+        let newObject = {};
+        let number = +prompt('Введите число от 0 до 999');
+        let arrNumber;
+        if (Number.isInteger(number) ) {
+            let arrNum = number.toString().split('');
+            arrNumber = arrNum.map(Number);
+            while (arrNumber.length < 3) {
+                arrNumber.unshift(0);
+            }
+            if (arrNumber.length > 3 || number < 0 || isNaN(number)) {
+                console.log("Недопустимое значение. Введите число от 0 до 999");
+                return newObject;
+            } else {
+                newObject['единицы'] = +arrNumber[2];
+                newObject['десятки'] = +arrNumber[1];
+                newObject['сотни'] = +arrNumber[0];
+                return newObject;
+            }
+        } else {
+            alert ('Число должно быть целым');
+            return newObject;
+        }
+    }
+    console.log(numToObject());
+</script>
+</body>
+</html>
